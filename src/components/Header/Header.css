@@ -1,0 +1,13 @@
+.headerContainer {
+  background-color: transparent;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  border: .5px solid;
+  border-bottom-color: #1c7d44;
+}
+
+h3 {
+  color: #1c7d44;
+  font-family: 'Roboto' sans-serif;
+}

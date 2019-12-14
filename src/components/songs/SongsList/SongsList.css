@@ -1,0 +1,37 @@
+ul {
+  padding: 0px;
+}
+
+li {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  list-style-type: none;
+}
+
+a {
+  color:#1C1C1C;
+  text-decoration: none;
+}
+
+.songContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-bottom-color: #1c7d44;
+  padding-bottom: 8px;
+  margin: 20px 20px 20px 20px;
+}
+
+.spotifyButton {
+  background-color: #1ED760;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  border-radius: 20px;
+}

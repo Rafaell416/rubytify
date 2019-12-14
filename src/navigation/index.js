@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route
-} from "react-router-dom";
+} from "react-router-dom"
 import Artists from '../pages/Artists'
 import Albums from '../pages/Albums'
 import Songs from '../pages/Songs'
@@ -15,10 +15,10 @@ function Navigation () {
         <Route exact path="/">
           <Artists />
         </Route>
-        <Route exact path="/albums">
+        <Route exact path="/:id/albums">
           <Albums />
         </Route>
-        <Route exact path="/songs">
+        <Route exact path="/albums/:id/songs">
           <Songs />
         </Route>
       </Switch>

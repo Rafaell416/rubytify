@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout/Layout'
+import { fetchSongs } from '../api/songs'
+import { useParams } from 'react-router-dom'
+import SongsList from '../components/songs/SongsList/SongsList'
+
 
 function Songs () {
+  const [songs, setSongs] = useState([])
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    getSongs()
+  }, [])
+
+  const getSongs = async () => {
+    const songs = await fetchSongs(id)
+    console.log(songs)
+    setSongs(songs)
+  }
   return (
     <Layout title="Songs">
-      <h1>HELLO SONGS</h1>
+      <SongsList songs={songs}/>
     </Layout>
   )
 }

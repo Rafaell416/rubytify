@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Layout from '../components/common/Layout/Layout'
 import { fetchAlbums } from '../api/albums'
-import AlbumsGrid from '../components/albums/AlbumsGrid/AlbumsGrid'
+import AlbumsGrid from '../components/albums/AlbumsGrid'
 import { useParams } from 'react-router-dom'
 
 function Albums () {

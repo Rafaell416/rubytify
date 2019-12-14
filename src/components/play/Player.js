@@ -15,7 +15,7 @@ function Player ({ song: { name, preview_url, spotify_url } }) {
       }
       <div style={style.buttonContainer}>
         <Button outline>
-          <a href={spotify_url} target="_blank" style={style.a}>Play on Spotify</a>
+          <a href={spotify_url} target="_blank" rel="noopener noreferrer" style={style.a}>Play on Spotify</a>
         </Button>
       </div>
     </div>

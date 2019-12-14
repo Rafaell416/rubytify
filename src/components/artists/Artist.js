@@ -10,7 +10,7 @@ function Artist ({ id, name, image, genres, popularity, spotify_url }) {
       <div style={style.artistContainer}>
         <img style={style.img} src={image} alt={name}/>
         <div style={style.overlayView}>
-          <Body>{name}</Body>
+          <Body color="white">{name}</Body>
         </div>
       </div>
     </Link>

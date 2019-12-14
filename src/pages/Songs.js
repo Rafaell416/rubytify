@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Layout from '../components/Layout/Layout'
+import Layout from '../components/common/Layout/Layout'
 import { fetchSongs } from '../api/songs'
 import { useParams } from 'react-router-dom'
 import SongsList from '../components/songs/SongsList/SongsList'
@@ -16,7 +16,6 @@ function Songs () {
 
   const getSongs = async () => {
     const songs = await fetchSongs(id)
-    console.log(songs)
     setSongs(songs)
   }
   return (

@@ -8,7 +8,7 @@ function SongsList ({ songs }) {
       {songs.map(({ id, name, spotify_url }) => (
         <div className="songContainer">
           <li key={id}>{name}</li>
-          <a className="spotifyButton" href={spotify_url} target="_blank">
+          <a className="spotifyButton" href={spotify_url} target="_blank" rel="noopener noreferrer">
             Play on Spotify
           </a>
         </div>

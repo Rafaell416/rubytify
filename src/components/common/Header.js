@@ -1,22 +1,55 @@
 import React from 'react'
-import Heading1 from '../typography/Heading1'
+import PropTypes from 'prop-types'
+import { Heading1, Heading2, Heading3 } from '../typography'
 import { colors } from '../../styles/colors'
 
-function Header ({ title }) {
-  return (
-    <div style={style}>
-      <Heading1>{title}</Heading1>
-    </div>
-  )
+function Header ({ title, left, right, size }) {
+
+  const style = {
+    backgroundColor: colors.dark,
+    paddingLeft: 20,
+    paddingRight: 20,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: left ? 'left-align' : (right ? 'right-align' : 'center'),
+    // border: '.5px solid',
+    // borderBottomColor: colors.primary
+  }
+
+  if ( size === 'medium' ) {
+    return (
+      <div style={style}>
+        <Heading2>{title}</Heading2>
+      </div>
+    )
+  }
+
+  if ( size === 'small' ) {
+    return (
+      <div style={style}>
+        <Heading3>{title}</Heading3>
+      </div>
+    )
+  }
+
+  if ( size === 'large' ) {
+    return (
+      <div style={style}>
+        <Heading1>{title}</Heading1>
+      </div>
+    ) 
+  }
 }
 
-const style = {
-  backgroundColor: 'transparent',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: '.5px solid',
-  borderBottomColor: colors.primary
+Header.propTypes = {
+  title: PropTypes.string,
+  left: PropTypes.bool,
+  right: PropTypes.bool,
+  size: PropTypes.string
+}
+
+Header.defaultProps = {
+  size: 'large'
 }
 
 export default Header

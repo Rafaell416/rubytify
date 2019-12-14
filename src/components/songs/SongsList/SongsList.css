@@ -4,7 +4,6 @@ ul {
 
 li {
   color: white;
-  font-family: 'Roboto', sans-serif;
   list-style-type: none;
 }
 
@@ -21,17 +20,28 @@ a {
   border-top-width: 0px;
   border-right-width: 0px;
   border-left-width: 0px;
-  border-bottom-color: #1c7d44;
+  border-bottom-color: #2EE59D;
   padding-bottom: 8px;
   margin: 20px 20px 20px 20px;
 }
 
 .spotifyButton {
-  background-color: #1ED760;
+  /* background-image: linear-gradient(-90deg,#1ED760 ,white); */
+  background-color: #2EE59D;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 150px;
   border-radius: 20px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.spotifyButton:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }

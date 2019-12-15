@@ -1,27 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Layout from '../components/common/Layout/Layout'
-import { fetchAlbums } from '../api/albums'
+import { getAlbums } from '../redux/modules/albums'
 import AlbumsGrid from '../components/albums/AlbumsGrid'
 import { useParams } from 'react-router-dom'
 import Header from '../components/common/Header'
 
 function Albums () {
-  const [albums, setAlbums] = useState([])
-
+  const content = useSelector(state => state)
+  const dispatch = useDispatch()
   const { id } = useParams()
 
   useEffect(() => {
-    getAlbums()
+    dispatch(getAlbums(id))
   }, [])
 
-  const getAlbums = async () => {
-    const albums = await fetchAlbums(id)
-    setAlbums(albums)
-  }
   return (
     <Layout>
       <Header title="Albums" size="medium" left/>
-      <AlbumsGrid albums={albums}/>
+      <AlbumsGrid albums={content.albums.albums}/>
     </Layout>
   )
 }

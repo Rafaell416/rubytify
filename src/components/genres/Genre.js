@@ -4,7 +4,7 @@ import Button from '../common/buttons/Button'
 
 function Genre ({ name, slug }) {
   return (
-    <Button link to={`/genres/${slug}/random_song`}>
+    <Button link to={`/genres/${slug}/random_song?genre=${name}`}>
       {name}
     </Button>
   )

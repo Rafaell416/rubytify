@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useQuery } from '../hooks'
 import Layout from '../components/common/Layout/Layout'
 import { useParams } from 'react-router-dom'
 import SongsList from '../components/songs/SongsList'
@@ -11,6 +12,7 @@ function Songs () {
   const dispatch = useDispatch()
   const content = useSelector(state => state)
   const { id } = useParams()
+  const query = useQuery()
 
   useEffect(() => {
     dispatch(getSongs(id))
@@ -18,7 +20,7 @@ function Songs () {
 
   return (
     <Layout>
-      <Header title="Songs" left size="medium"/>
+      <Header title={`${query.get('album')} / Songs`} left size="medium"/>
       <SongsList songs={content.songs.songs}/>
     </Layout>
   )

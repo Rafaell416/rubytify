@@ -6,7 +6,7 @@ import { Body } from '../typography'
 
 function Album ({ id, name, image, spotify_url, total_tracks }) {
   return (
-    <Link to={`/albums/${id}/songs`} style={{ textDecoration: 'none' }}>
+    <Link to={`/albums/${id}/songs?album=${name}`} style={{ textDecoration: 'none' }}>
       <div style={style.albumContainer}>
         <img style={style.img} src={image} alt={name}/>
       </div>

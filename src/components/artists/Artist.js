@@ -6,7 +6,7 @@ import { Body } from '../typography'
 
 function Artist ({ id, name, image, genres, popularity, spotify_url }) {
   return (
-    <Link to={`/${id}/albums`}>
+    <Link to={`/${id}/albums?artist=${name}`}>
       <div style={style.artistContainer}>
         <img style={style.img} src={image} alt={name}/>
         <div style={style.overlayView}>

@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Layout from '../components/common/Layout/Layout'
-import { fetchRandomSongByGenre } from '../api/genres'
 import Player from '../components/play/Player'
+import { getRandomSongByGenre } from '../redux/modules/genres'
 
 function Play () {
-  const [randomSong, setRandomSong] = useState({})
+  const content = useSelector(state => state)
+  const dispatch = useDispatch()
   const { genre_name } = useParams() 
 
   useEffect(() => {
-    getRandomSong()
+    dispatch(getRandomSongByGenre(genre_name))
   }, [])
-
-  const getRandomSong = async () => {
-    const song = await fetchRandomSongByGenre(genre_name)
-    setRandomSong(song)
-  }
 
   return (
     <Layout title="Random Song">
-      <Player song={randomSong}/>
+      <Player song={content.genres.currentSong}/>
     </Layout>
   )
 }

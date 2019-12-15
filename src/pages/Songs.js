@@ -1,28 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Layout from '../components/common/Layout/Layout'
-import { fetchSongs } from '../api/songs'
 import { useParams } from 'react-router-dom'
 import SongsList from '../components/songs/SongsList'
 import Header from '../components/common/Header'
+import { getSongs } from '../redux/modules/songs'
 
 
 function Songs () {
-  const [songs, setSongs] = useState([])
-
+  const dispatch = useDispatch()
+  const content = useSelector(state => state)
   const { id } = useParams()
 
   useEffect(() => {
-    getSongs()
+    dispatch(getSongs(id))
   }, [])
 
-  const getSongs = async () => {
-    const songs = await fetchSongs(id)
-    setSongs(songs)
-  }
   return (
     <Layout>
       <Header title="Songs" left size="medium"/>
-      <SongsList songs={songs}/>
+      <SongsList songs={content.songs.songs}/>
     </Layout>
   )
 }

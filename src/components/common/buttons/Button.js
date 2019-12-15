@@ -22,13 +22,13 @@ function Button ({
       borderColor: colors.primary,
       borderRadius: 25,
       cursor: 'pointer',
-      outline: 'none'
+      outline: 'none',
     }
   }
 
     if (link) {
       return (
-        <Link to={to}>
+        <Link style={{ textDecoration: 'none' }} to={to}>
           <button style={styles.buttonContainer}>
             <Heading2>
               {children}

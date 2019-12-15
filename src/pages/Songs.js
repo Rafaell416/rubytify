@@ -3,6 +3,7 @@ import Layout from '../components/common/Layout/Layout'
 import { fetchSongs } from '../api/songs'
 import { useParams } from 'react-router-dom'
 import SongsList from '../components/songs/SongsList'
+import Header from '../components/common/Header'
 
 
 function Songs () {
@@ -19,7 +20,8 @@ function Songs () {
     setSongs(songs)
   }
   return (
-    <Layout title="Songs">
+    <Layout>
+      <Header title="Songs" left size="medium"/>
       <SongsList songs={songs}/>
     </Layout>
   )

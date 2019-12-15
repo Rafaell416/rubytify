@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Heading1, Heading2, Heading3 } from '../typography'
 import { colors } from '../../styles/colors'
 
-function Header ({ title, left, right, size }) {
+function Header ({ children, title, left, right, size }) {
 
   const style = {
     backgroundColor: colors.dark,
@@ -14,6 +14,14 @@ function Header ({ title, left, right, size }) {
     justifyContent: left ? 'left-align' : (right ? 'right-align' : 'center'),
     // border: '.5px solid',
     // borderBottomColor: colors.primary
+  }
+
+  if ( children ) {
+    return (
+      <div style={style}>
+        {children}
+      </div>
+    )
   }
 
   if ( size === 'medium' ) {

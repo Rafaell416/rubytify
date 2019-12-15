@@ -3,6 +3,7 @@ import Layout from '../components/common/Layout/Layout'
 import { fetchAlbums } from '../api/albums'
 import AlbumsGrid from '../components/albums/AlbumsGrid'
 import { useParams } from 'react-router-dom'
+import Header from '../components/common/Header'
 
 function Albums () {
   const [albums, setAlbums] = useState([])
@@ -18,7 +19,8 @@ function Albums () {
     setAlbums(albums)
   }
   return (
-    <Layout title="Albums">
+    <Layout>
+      <Header title="Albums" size="medium" left/>
       <AlbumsGrid albums={albums}/>
     </Layout>
   )

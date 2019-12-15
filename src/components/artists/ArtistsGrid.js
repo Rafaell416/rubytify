@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Artist from './Artist'
+import GridLoader from '../common/loaders/GridLoader'
 
 function ArtistsGrid ({ artists }) {
+  if ( artists.length == 0 ) return <GridLoader />
   return (
     <div style={style.artistsGrid}>
       {artists.map((artist) => <Artist key={artist.id} {...artist}/>)}

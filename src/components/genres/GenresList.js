@@ -3,15 +3,22 @@ import PropTypes from 'prop-types'
 import Genre from './Genre'
 import { colors } from '../../styles'
 import Button from '../common/buttons/Button'
+import GenreLoader from '../common/loaders/GenreLoader'
 
 function GenresList ({ genres, horizontal }) {
   if ( horizontal ) {
-    return (
-      <div style={ style.genresListContainerHorizontal}>
-        {genres.map(genre => <Genre key={genre.slug} {...genre}/>)}
-        <Button link to="/genres" outline>>></Button>
-      </div>
-    )
+    if ( genres.length == 0 ) {
+      return (
+        <GenreLoader />
+      )
+    } else {
+      return (
+        <div style={ style.genresListContainerHorizontal}>
+          {genres.map(genre => <Genre key={genre.slug} {...genre}/>)}
+          <Button link to="/genres" outline>>></Button>
+        </div>
+      )
+    }
   } else {
     return (
       <div style={style.genresListContainerGrid}>

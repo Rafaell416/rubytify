@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Album from './Album'
+import GridLoader from '../common/loaders/GridLoader'
 
 function AlbumsGrid ({ albums }) {
+  if ( albums.length == 0 ) return <GridLoader />
   return (
     <div style={style.gridContainer}>
       {albums.map((album) => <Album key={album.id} {...album}/>)}

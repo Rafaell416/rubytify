@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import { Body } from '../typography'
 import { colors } from '../../styles'
 import Button from '../common/buttons/Button'
+import ListLoader from '../common/loaders/ListLoader'
 
 function SongsList ({ songs }) {
+  if (songs.length == 0) return <ListLoader />
   return (
     <ul style={style.ul}>
       {songs.map(({ id, name, spotify_url }) => (

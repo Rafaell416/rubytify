@@ -8,7 +8,8 @@ import Artists from '../pages/Artists'
 import Albums from '../pages/Albums'
 import Songs from '../pages/Songs'
 import Genres from '../pages/Genres'
-import Play from '../pages/Play'
+import RandomSong from '../pages/RandomSong'
+import Song from '../pages/Song'
 
 function Navigation () {
   return (
@@ -27,7 +28,10 @@ function Navigation () {
           <Genres />
         </Route>
         <Route exact path="/genres/:genre_name/random_song">
-          <Play />
+          <RandomSong />
+        </Route>
+        <Route exact path="/song">
+          <Song />
         </Route>
       </Switch>
     </Router>

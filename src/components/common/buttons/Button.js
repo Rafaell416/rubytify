@@ -23,6 +23,8 @@ function Button ({
       borderRadius: 25,
       cursor: 'pointer',
       outline: 'none',
+      marginLeft: 5,
+      marginRight: 5
     }
   }
 

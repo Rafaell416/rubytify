@@ -18,6 +18,8 @@ function Songs () {
     dispatch(getSongs(id))
   }, [])
 
+  console.log(content.songs.songs)
+
   return (
     <Layout>
       <Header title={`${query.get('album')} / Songs`} left size="medium"/>

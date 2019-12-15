@@ -14,12 +14,16 @@ function SongsList ({ songs }) {
           <li>
             <Body color="white">{name}</Body>
           </li>
-          <Button>
-            <a style={style.a} href={spotify_url} target="_blank" rel="noopener noreferrer">
-              Play on Spotify
-            </a>
-          </Button>
-          
+          <div style={style.buttonsContainer}>
+            <Button outline link to="/song">
+              Listen preview
+            </Button>
+            <Button>
+              <a style={style.a} href={spotify_url} target="_blank" rel="noopener noreferrer">
+                Play on Spotify
+              </a>
+            </Button>
+          </div>
         </div>
       ))}
     </ul>
@@ -45,6 +49,9 @@ const style = {
   a: {
     color: colors.white,
     textDecoration: 'none'
+  },
+  buttonsContainer: {
+    display: 'flex'
   }
 }
 

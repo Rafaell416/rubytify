@@ -1,10 +1,12 @@
-import { fetchSongs } from '../../api/songs'
+import { fetchSongs, fetchRandomSongByGenre } from '../../api/songs'
 
 const initialState = {
   songs: [],
+  currentSong: {}
 }
 
 const FETCH_SONGS = 'FETCH_SONGS'
+const FETCH_RANDOM_SONG_BY_GENRE = 'FETCH_RANDOM_SONG_BY_GENRE'
 
 export default function reducer (state = initialState, action) {
   switch (action.type) {
@@ -12,6 +14,11 @@ export default function reducer (state = initialState, action) {
       return {
         ...state,
         songs: action.data
+      }
+    case FETCH_RANDOM_SONG_BY_GENRE:
+      return {
+        ...state,
+        currentSong: action.data
       }
     default:
       return state
@@ -28,6 +35,17 @@ function getSongs (id) {
   }
 } 
 
+function getRandomSongByGenre (genre) {
+  return dispatch => {
+    fetchRandomSongByGenre(genre)
+    .then(res => dispatch({
+      type: FETCH_RANDOM_SONG_BY_GENRE,
+      data: res
+    }))
+  }
+}
+
 export {
-  getSongs
+  getSongs,
+  getRandomSongByGenre
 }

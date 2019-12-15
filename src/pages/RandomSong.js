@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom'
 import Layout from '../components/common/Layout/Layout'
 import Player from '../components/play/Player'
 import Header from '../components/common/Header'
-import { getRandomSongByGenre } from '../redux/modules/genres'
+import { getRandomSongByGenre } from '../redux/modules/songs'
 
-function Play () {
+function RandomSong () {
   const content = useSelector(state => state)
   const dispatch = useDispatch()
   const { genre_name } = useParams() 
@@ -20,9 +20,9 @@ function Play () {
   return (
     <Layout>
       <Header title={`Genres / ${query.get('genre')} / Random song`} left size="medium"/>
-      <Player song={content.genres.currentSong}/>
+      <Player song={content.songs.currentSong}/>
     </Layout>
   )
 }
 
-export default Play
+export default RandomSong

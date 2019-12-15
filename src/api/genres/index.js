@@ -28,17 +28,6 @@ async function fetchGenres (settings) {
   }
 }
 
-async function fetchRandomSongByGenre (genre) {
-  try {
-    const endpoint = `${config.api.endpoints.genres}/${genre}/random_song`
-    const response = await (await fetch(endpoint)).json()
-    return response.data
-  } catch (error) {
-    return error.response
-  }
-}
-
 export {
-  fetchGenres,
-  fetchRandomSongByGenre
+  fetchGenres
 }

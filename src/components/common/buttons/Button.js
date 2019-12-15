@@ -9,6 +9,7 @@ function Button ({
   link, 
   outline, 
   to,
+  ...props
   }) {
   const styles = {
     buttonContainer: {
@@ -40,7 +41,7 @@ function Button ({
       )
     } else {
       return (
-        <button style={styles.buttonContainer}>
+        <button style={styles.buttonContainer} {...props}>
           <Heading2>
             {children}
           </Heading2>

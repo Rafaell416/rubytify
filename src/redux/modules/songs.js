@@ -7,6 +7,7 @@ const initialState = {
 
 const FETCH_SONGS = 'FETCH_SONGS'
 const FETCH_RANDOM_SONG_BY_GENRE = 'FETCH_RANDOM_SONG_BY_GENRE'
+const SET_CURRENT_SONG = 'SET_CURRENT_SONG'
 
 export default function reducer (state = initialState, action) {
   switch (action.type) {
@@ -16,6 +17,11 @@ export default function reducer (state = initialState, action) {
         songs: action.data
       }
     case FETCH_RANDOM_SONG_BY_GENRE:
+      return {
+        ...state,
+        currentSong: action.data
+      }
+    case SET_CURRENT_SONG:
       return {
         ...state,
         currentSong: action.data
@@ -45,7 +51,15 @@ function getRandomSongByGenre (genre) {
   }
 }
 
+function setCurrentSong (currentSong) {
+  return dispatch => dispatch({
+    type: SET_CURRENT_SONG,
+    data: currentSong
+  })
+}
+
 export {
   getSongs,
+  setCurrentSong,
   getRandomSongByGenre
 }

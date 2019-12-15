@@ -1,31 +1,48 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Body } from '../typography'
 import { colors } from '../../styles'
 import Button from '../common/buttons/Button'
 import ListLoader from '../common/loaders/ListLoader'
+import { setCurrentSong } from '../../redux/modules/songs'
+
 
 function SongsList ({ songs }) {
+  const dispatch = useDispatch()
+  const history = useHistory()
+
+  function setSong (song) {
+    dispatch(setCurrentSong(song))
+    history.push('/song')
+  }
+
   if (songs.length == 0) return <ListLoader />
   return (
     <ul style={style.ul}>
-      {songs.map(({ id, name, spotify_url }) => (
-        <div key={id} style={style.songContainer}>
-          <li>
-            <Body color="white">{name}</Body>
-          </li>
-          <div style={style.buttonsContainer}>
-            <Button outline link to="/song">
-              Listen preview
-            </Button>
-            <Button>
-              <a style={style.a} href={spotify_url} target="_blank" rel="noopener noreferrer">
-                Play on Spotify
-              </a>
-            </Button>
+      {songs.map((song) => {
+        const { id, name, spotify_url, preview_url } = song
+        return (
+          <div key={id} style={style.songContainer}>
+            <li>
+              <Body color="white">{name}</Body>
+            </li>
+            <div style={style.buttonsContainer}>
+              { preview_url 
+                ? <Button outline onClick={() => setSong(song)}>
+                    Listen preview
+                  </Button> 
+                : null }
+              <Button>
+                <a style={style.a} href={spotify_url} target="_blank" rel="noopener noreferrer">
+                  Play on Spotify
+                </a>
+              </Button>
+            </div>
           </div>
-        </div>
-      ))}
+        )
+      })}
     </ul>
   )
 }

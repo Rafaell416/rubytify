@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Layout from '../components/common/Layout/Layout'
-import { fetchGenres } from '../api/genres'
+import { getGenres } from '../redux/modules/genres'
 import GenresList from '../components/genres/GenresList'
 import Header from '../components/common/Header'
 
 function Genres () {
-  const [genres, setGenres] = useState([])
-  useEffect(() => {
-    getGenres()
-  }, [])
+  const dispatch = useDispatch()
+  const content = useSelector(state => state)
 
-  const getGenres = async () => {
-    const genres = await fetchGenres({})
-    setGenres(genres)
-  }
+  useEffect(() => {
+    dispatch(getGenres({}))
+  }, [])
 
   return (
     <Layout>
       <Header title="Genres" left size="medium"/>
-      <GenresList genres={genres} horizontal={false}/>
+      <GenresList genres={content.genres.genres} horizontal={false}/>
     </Layout>
   )
 }

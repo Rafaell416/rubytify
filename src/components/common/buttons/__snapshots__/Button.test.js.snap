@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Button /> component 1`] = `
+<button
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2EE59D",
+      "border": "none",
+      "borderColor": "#2EE59D",
+      "borderRadius": 25,
+      "cursor": "pointer",
+      "display": "flex",
+      "height": 40,
+      "justifyContent": "center",
+      "marginLeft": 5,
+      "marginRight": 5,
+      "outline": "none",
+      "width": 150,
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "color": "white",
+        "fontFamily": "Roboto, sans-serif",
+        "margin": 0,
+      }
+    }
+  >
+    testing button
+  </h2>
+</button>
+`;

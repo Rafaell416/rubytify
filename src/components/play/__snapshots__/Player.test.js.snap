@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Player /> component 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "display": "flex",
+      "flexDirection": "column",
+      "justifyContent": "center",
+      "padding": 50,
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "color": "white",
+        "fontFamily": "Roboto, sans-serif",
+        "margin": 0,
+      }
+    }
+  >
+    testing song
+  </h2>
+  <video
+    autoPlay={true}
+    controls={true}
+    name="media"
+    style={
+      Object {
+        "outline": "none",
+      }
+    }
+  >
+    <source
+      src="https://cdn.test.mp3"
+      type="audio/mpeg"
+    />
+  </video>
+  <div
+    style={
+      Object {
+        "marginTop": 20,
+      }
+    }
+  >
+    <button
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "border": ".5px solid",
+          "borderColor": "#2EE59D",
+          "borderRadius": 25,
+          "cursor": "pointer",
+          "display": "flex",
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 5,
+          "marginRight": 5,
+          "outline": "none",
+          "width": 150,
+        }
+      }
+    >
+      <h2
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Roboto, sans-serif",
+            "margin": 0,
+          }
+        }
+      >
+        <a
+          href="https://open.spotify.com/song"
+          rel="noopener noreferrer"
+          style={
+            Object {
+              "color": "white",
+            }
+          }
+          target="_blank"
+        >
+          Play on Spotify
+        </a>
+      </h2>
+    </button>
+  </div>
+</div>
+`;

@@ -51,9 +51,10 @@ function Button ({
 } 
 
 Button.propTypes = {
-  color: PropTypes.string,
-  style: PropTypes.object,
-  outline: PropTypes.bool
+  outline: PropTypes.bool,
+  to: PropTypes.string,
+  children: PropTypes.node,
+  link: PropTypes.bool
 }
 
 export default Button

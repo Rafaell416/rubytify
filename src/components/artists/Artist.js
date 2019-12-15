@@ -46,7 +46,7 @@ const style = {
 Artist.propTypes = {
   id: PropTypes.number,
   name: PropTypes.string,
-  genres: PropTypes.string,
+  genres: PropTypes.array,
   popularity: PropTypes.string,
   spotify_url: PropTypes.string
 }
